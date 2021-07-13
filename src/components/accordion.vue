@@ -12,13 +12,21 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'vue-property-decorator';
+import {Vue, Component, Mixins} from 'vue-property-decorator';
+import toggle from './toggle.vue'
 
-@Component
-export default class ToggleBtn extends Vue {
-    public show: boolean = false;
-    public toggle() {
-        this.show = !this.show;
+@Component({
+    components: {
+        toggle,
+    }
+})
+export default class ToggleBtn extends Mixins(Vue, toggle) {
+    // public show: boolean = false;
+    // public toggle() {
+    //     this.show = !this.show;
+    // }
+    mounted() {
+        console.log(this);
     }
 }
 </script>

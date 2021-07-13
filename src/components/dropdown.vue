@@ -17,14 +17,11 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from 'vue-property-decorator';
+import {Vue, Component, Mixins} from 'vue-property-decorator';
+import toggle from './toggle.vue'
 
 @Component
-export default class Dropdown extends Vue {
-    public show: boolean = false;
-    public toggle() {
-        this.show = !this.show;
-    }
+export default class Dropdown extends Mixins(Vue, toggle) {
 }
 </script>
 
